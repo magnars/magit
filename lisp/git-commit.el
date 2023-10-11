@@ -950,7 +950,7 @@ have the form \"NAME <EMAIL>\"."
            (unless (= (char-after) ?\n)
              (insert ?\n)))
           (t
-           (while (re-search-backward (concat "^" comment-start) nil t))
+           (while (re-search-backward (concat "^" comment-start) (1+ (point-min)) t))
            (unless (looking-back "\n\n" nil)
              (insert ?\n))
            (insert header ?\n)))
